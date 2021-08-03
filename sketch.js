@@ -1,32 +1,53 @@
-varship,ship_sail;
-var seaImage;
+ var Runner;
+  var path,invisibleGround,pathImage
 function preload(){
+  //pre-load images
 
-seaImg=loadImage("sea.png");
-shipImg=loadAnimation=("ship-1.png","ship-2.png","ship-1.png");
+  pathImg=loadImage("path.png");
 
-shipImg=loadAnimation=("ship-3.png","ship-4.png","ship-3.png");
+  Runner_running = loadAnimation("Runner-1.png","Runner-2.png");
+
 }
 
 function setup(){
   createCanvas(400,400);
- 
-ship=createSprite(50,160,20,50);
-ship.addAnimation("sailling",ship_sailling);
+  //create sprites here
+  path=createSprite(200,200);
+  path.addImage(pathImg);
+  path.velocityY = 4;
+  path.scale = 1.2;
 
-  spriteName.addImage(ship_sailling)
+  Runner_running=createSprite(200,200);
+  Runner_running.addAnimation("Runner-1.png","Runner-2.png");
+  Runner_running.velocityY = 0;
+  Runner_running .scale = 0.1;
 
-if(sea.x < 0)
-sea.x .width/2;
+invisibleGround=createSprite(10,200,10,400);
+invisibleGround.visible=true;
+
+invisibleGround=createSprite(390,200,10,400);
+invisibleGround.visible=true;
+
 }
 
 function draw() {
-  background("blue");
+  background("black");
  
-  ship.velocityx=-2
-  ship.velocityx=2
+  
 
-console.log(ship_sailling);
+  if(path.y > 400){
+    path.y = height/2;
+    }
 
+    if(keyIsDown(LEFT_ARROW)){
+      Runner=LEFT;
+    }
 
-}
+    if(keyIsDown(RIGHT_ARROW)){
+      Runner=RIGHT;
+
+      
+
+    }
+    drawSprites();
+  }
